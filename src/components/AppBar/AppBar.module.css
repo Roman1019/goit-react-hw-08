@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #2a363b;
+}
+.link {
+  text-decoration: none;
+  font-weight: 700;
+  color: black;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease-in-out;
+}
+
+.link:hover {
+  border-bottom: 2px solid #333;
+}
+
+.active {
+  color: red;
+  font-weight: 600;
+}
+.active:hover {
+  color: red;
+  border-bottom: 2px solid red;
+}

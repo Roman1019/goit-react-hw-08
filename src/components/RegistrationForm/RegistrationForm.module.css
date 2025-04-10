@@ -1,0 +1,52 @@
+.formWrapper {
+  padding-bottom: 16px;
+}
+.form {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 12px;
+  max-width: 330px;
+}
+
+.formNameDiv {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.label {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.input {
+  border-radius: 3px;
+  border: 1px solid grey;
+  height: 20px;
+}
+
+.error {
+  color: orangered;
+  font-size: 14px;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95px;
+  height: 30px;
+  border: 1px solid;
+  border-radius: 3px;
+  background-color: white;
+}
+.button:hover {
+  background-color: rgb(67, 67, 255);
+  color: white;
+}
