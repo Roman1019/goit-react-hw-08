@@ -1,0 +1,59 @@
+.contactForm {
+  padding: 16px 0;
+}
+
+.contactHeadDiv {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.contactHeadIconDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.contactHead {
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 33px;
+}
+.contactHeadIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactParDiv {
+  display: flex;
+}
+
+.contactPar {
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 20px;
+}
+
+.contactButtonDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 30px;
+  border: 1px solid;
+  border-radius: 3px;
+  background-color: white;
+  color: black;
+}
+
+.contactButton:hover {
+  background-color: orangered;
+  color: #fff;
+}
