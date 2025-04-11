@@ -4,12 +4,12 @@ import ContactForm from "../ContactForm/ContactForm.jsx";
 import css from "./App.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchContacts } from "../../redux/contactsOps.js";
+import { fetchContacts } from "../../redux/contacts/operations.js";
 import {
   selectContacts,
   selectIsLoading,
   selectIsError,
-} from "../../redux/contactsSlice.js";
+} from "../../redux/contacts/selectors.js";
 import Error from "../Error/Error.jsx";
 import Loader from "../Loader/Loader.jsx";
 import Layout from "../Layout/Layout.jsx";
@@ -17,6 +17,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "../HomePage/HomePage.jsx";
 import RegistrationForm from "../RegistrationForm/RegistrationForm.jsx";
 import LoginPage from "../LoginPage/LoginPage.jsx";
+import RegistrationPage from "../RegistrationPage/RegistrationPage.jsx";
 
 export default function App() {
   const contacts = useSelector(selectContacts);
@@ -31,7 +32,7 @@ export default function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/register" element={<RegistrationForm />} />
+        <Route path="/register" element={<RegistrationPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/contacts"
