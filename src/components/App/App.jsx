@@ -6,8 +6,15 @@ import HomePage from "../HomePage/HomePage.jsx";
 import LoginPage from "../LoginPage/LoginPage.jsx";
 import RegistrationPage from "../RegistrationPage/RegistrationPage.jsx";
 import ContactPage from "../ContactPage/ContactPage.jsx";
+import { useEffect } from "react";
+import { refreshUser } from "../../redux/auth/operations.js";
+import { useDispatch } from "react-redux";
 
 export default function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
   return (
     <Layout>
       <Routes>

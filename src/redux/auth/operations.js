@@ -45,3 +45,19 @@ export const logOut = createAsyncThunk("auth/logOut", async (_, thunkAPI) => {
 // react123@ukr.net
 // react12345@ukr.net
 // 123123123
+
+export const refreshUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    // console.log("refresh");
+    try {
+      const reduxState = thunkAPI.getState();
+      setAuthHeader(`Bearer ${reduxState.auth.token}`);
+      console.log(reduxState.auth.token);
+      const response = await axios.get("/users/current");
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
