@@ -36,6 +36,7 @@ export const logIn = createAsyncThunk(
 export const logOut = createAsyncThunk("auth/logOut", async (_, thunkAPI) => {
   try {
     const response = await axios.post("/users/logout");
+    setAuthHeader("");
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -49,9 +50,13 @@ export const logOut = createAsyncThunk("auth/logOut", async (_, thunkAPI) => {
 export const refreshUser = createAsyncThunk(
   "auth/refresh",
   async (_, thunkAPI) => {
-    // console.log("refresh");
+    const reduxState = thunkAPI.getState();
+    if (reduxState.auth.token === null) {
+      return thunkAPI.rejectWithValue("Unable to fetch user");
+    }
     try {
-      const reduxState = thunkAPI.getState();
+      console.log("refreshUser");
+
       setAuthHeader(`Bearer ${reduxState.auth.token}`);
       console.log(reduxState.auth.token);
       const response = await axios.get("/users/current");
@@ -59,5 +64,11 @@ export const refreshUser = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
+  },
+  {
+    condition: (_, thunkAPI) => {
+      const reduxState = thunkAPI.getState();
+      return reduxState.auth.token !== null;
+    },
   }
 );

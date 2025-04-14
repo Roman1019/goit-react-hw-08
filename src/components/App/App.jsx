@@ -8,14 +8,20 @@ import RegistrationPage from "../RegistrationPage/RegistrationPage.jsx";
 import ContactPage from "../ContactPage/ContactPage.jsx";
 import { useEffect } from "react";
 import { refreshUser } from "../../redux/auth/operations.js";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectIsRefreshing } from "../../redux/auth/selectors.js";
 
 export default function App() {
   const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
+
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  return (
+
+  return isRefreshing ? (
+    <strong>Getting user data please wait...</strong>
+  ) : (
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
