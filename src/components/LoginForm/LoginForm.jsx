@@ -3,16 +3,21 @@ import { useId } from "react";
 import css from "./LoginForm.module.css";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/operations";
+// import { useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
   const idEmail = useId();
   const idPassword = useId();
   const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
   const handleSumbit = (values, actions) => {
-    console.log(values);
-    console.log(actions);
     dispatch(logIn(values));
+    // .unwrap()
+    // .then(() => {
+    //   navigate("/contacts");
+    // })
+    // .catch();
     actions.resetForm();
   };
   return (

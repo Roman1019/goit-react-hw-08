@@ -1,8 +1,8 @@
-import ContactForm from "../ContactForm/ContactForm.jsx";
-import ContactList from "../ContactList/ContactList.jsx";
-import SearchBox from "../SearchBox/SearchBox.jsx";
-import Error from "../Error/Error.jsx";
-import Loader from "../Loader/Loader.jsx";
+import ContactForm from "../../components/ContactForm/ContactForm.jsx";
+import ContactList from "../../components/ContactList/ContactList.jsx";
+import SearchBox from "../../components/SearchBox/SearchBox.jsx";
+import Error from "../../components/Error/Error.jsx";
+import Loader from "../../components/Loader/Loader.jsx";
 import css from "./ContactPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "../../redux/contacts/operations.js";

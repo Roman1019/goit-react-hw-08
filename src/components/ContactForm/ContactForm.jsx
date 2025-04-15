@@ -7,8 +7,22 @@ import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations.js";
 
 const UserSchema = Yup.object().shape({
-  name: Yup.string().min(3, "Too short").max(50).required("Required"),
-  number: Yup.string().min(3, "Too short").max(50).required("Required"),
+  name: Yup.string()
+    .matches(
+      /^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ\s'-]+$/,
+      "The name must contain only letters"
+    )
+    .min(3, "Too short")
+    .max(50)
+    .required("Required"),
+  number: Yup.string()
+    .matches(
+      /^\d+$/,
+      "The number must contain only numbers and can start with +"
+    )
+    .min(3, "Too short")
+    .max(50)
+    .required("Required"),
 });
 
 export default function ContactForm() {
@@ -50,7 +64,9 @@ export default function ContactForm() {
             </label>
             <Field
               className={css.input}
-              type="text"
+              type="tel"
+              // pattern="\d+"
+              // title="Введіть лише цифри"
               name="number"
               id={idNumber}
             />
