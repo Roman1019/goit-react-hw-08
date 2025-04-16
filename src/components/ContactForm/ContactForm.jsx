@@ -65,8 +65,6 @@ export default function ContactForm() {
             <Field
               className={css.input}
               type="tel"
-              // pattern="\d+"
-              // title="Введіть лише цифри"
               name="number"
               id={idNumber}
             />

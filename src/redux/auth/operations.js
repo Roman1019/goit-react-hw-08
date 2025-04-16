@@ -11,7 +11,6 @@ export const register = createAsyncThunk(
     console.log("register", credentials);
     try {
       const response = await axios.post("/users/signup", credentials);
-      // console.log(response.data.token);
       setAuthHeader(`Bearer ${response.data.token}`);
       return response.data;
     } catch (error) {
@@ -44,10 +43,6 @@ export const logOut = createAsyncThunk("auth/logOut", async (_, thunkAPI) => {
   }
 });
 
-// react123@ukr.net
-// react12345@ukr.net
-// 123123123
-
 export const refreshUser = createAsyncThunk(
   "auth/refresh",
   async (_, thunkAPI) => {
@@ -56,10 +51,7 @@ export const refreshUser = createAsyncThunk(
       return thunkAPI.rejectWithValue("Unable to fetch user");
     }
     try {
-      // console.log("refreshUser");
-
       setAuthHeader(`Bearer ${reduxState.auth.token}`);
-      // console.log(reduxState.auth.token);
       const response = await axios.get("/users/current");
       return response.data;
     } catch (error) {
